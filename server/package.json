@@ -9,8 +9,11 @@
     "express": "^4.17.1"
   },
   "scripts": {
-    "prod" : "nodemon ./index.js",
+    "dev": "cross-env NODE_ENV=\"development\" nodemon ./index.js",
     "build": "",
     "test": ""
+  },
+  "devDependencies": {
+    "cross-env": "^6.0.3"
   }
 }

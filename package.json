@@ -9,8 +9,7 @@
     "dev": "cross-env NODE_ENV=\"development\" & concurrently --kill-others \"yarn --cwd ./server dev\" \"yarn --cwd ./frontend serve \"",
     "build": "yarn --cwd ./frontend build",
     "test": "",
-    "prod": "cross-env NODE_ENV=\"production\" node ./server/index.js",
-    "install": "yarn install  & yarn --cwd ./server install & yarn --cwd ./frontend install"
+    "prod": "cross-env NODE_ENV=\"production\" node ./server/index.js"
   },
   "dependencies": {
     "cross-env": "^6.0.3"
