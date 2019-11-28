@@ -1,0 +1,21 @@
+{
+  "name": "DatasetHub",
+  "version": "1.0.0",
+  "main": "./server/index.js",
+  "repository": "https://github.com/Gabriel4256/DatasetHub.git",
+  "author": "Gabriel4256 <tla4256@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=\"development\" & concurrently --kill-others \"yarn --cwd ./server dev\" \"yarn --cwd ./frontend serve \"",
+    "build": "yarn --cwd ./frontend build",
+    "test": "",
+    "prod": "cross-env NODE_ENV=\"production\" node ./server/index.js",
+    "install": "yarn add  & yarn --cwd ./server add & yarn --cwd ./frontend add"
+  },
+  "dependencies": {
+    "cross-env": "^6.0.3"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.0"
+  }
+}
