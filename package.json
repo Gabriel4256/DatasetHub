@@ -10,7 +10,7 @@
     "build": "yarn --cwd ./frontend build",
     "test": "",
     "prod": "cross-env NODE_ENV=\"production\" node ./server/index.js",
-    "install": "yarn add  & yarn --cwd ./server add & yarn --cwd ./frontend add"
+    "install": "yarn install  & yarn --cwd ./server install & yarn --cwd ./frontend install"
   },
   "dependencies": {
     "cross-env": "^6.0.3"
