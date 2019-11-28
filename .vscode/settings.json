@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/bbcf1472-abff-4841-b5c1-a4d1045016bf/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/DataHubServer",
+    "appService.deploySubpath": "server"
+}

@@ -15,7 +15,12 @@ router.get('/', (req, res)=>{
     //send url of the image and labeling options
     
     res.json({
-        url: 'https://www.gstatic.com/webp/gallery3/1_webp_ll.sm.png?dcb_=0.05563218215670307',
+        images: [
+            {url: 'https://imgix.bustle.com/uploads/image/2019/9/30/6241f90e-74ac-4158-bd94-5cf2873b081e-stocksy_txp0af17dc4fdu200_small_1088443.jpg?w=1020&h=576&fit=crop&crop=faces&auto=format&q=70', id: "001"},
+            {url: 'https://thumbs-prod.si-cdn.com/s-rtW1rEAQTIGcmUVNFSSPC4s3I=/800x600/filters:no_upscale()/https://public-media.si-cdn.com/filer/56/4a/564a542d-5c37-4be7-8892-98201ab13180/cat-2083492_1280.jpg', id: "002"},
+            {url: 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2016/05/19091354/Weimaraner-puppy-outdoors-with-bright-blue-eyes.20190813165758508-1.jpg', id: "003"},
+            {url: 'https://boygeniusreport.files.wordpress.com/2016/11/puppy-dog.jpg?quality=98&strip=all', id: "004"}
+        ],
         options: ['cat', 'dog'], //labeling options user can choose
         img_id: "blah-blah" //identifier of image used internally
     });
@@ -27,9 +32,9 @@ router.post('/', (req, res)=>{
     img_id = req.body.img_id
     
     // if successfully updated, then send success message
-    res.json({});
+    res.json({"a":334});
     // Ohterwise, send failure message
-    res.status(404).json({error: "not found"});
+    //res.status(404).json({error: "not found"});
 });
 
 module.exports = router;

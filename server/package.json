@@ -7,5 +7,10 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "scripts": {
+    "prod" : "nodemon ./index.js",
+    "build": "",
+    "test": ""
   }
 }
