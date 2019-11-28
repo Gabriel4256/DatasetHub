@@ -43,7 +43,7 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 
 ---
 
-## Installing
+## Installation
 
     $ git clone https://github.com/Gabriel4256/DatasetHub
     $ cd DatasetHub
