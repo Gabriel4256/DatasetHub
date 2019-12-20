@@ -4,8 +4,10 @@ Web application providing datasets
 
 ---
 ## Requirements
-
-For development, you will only need Node.js and a node global package, Yarn, cross-env, concurrently installed in your environement.
+* Node 10
+* Yarn
+* cross-env
+* concurrently
 
 ### Node
 - #### Node installation on Windows
@@ -30,10 +32,6 @@ If the installation was successful, you should be able to run the following comm
 
     $ npm --version
     6.1.0
-
-If you need to update `npm`, you can make it using `npm`! Cool right? After running the following command, just open again the command line and be happy.
-
-    $ npm install npm -g
 
 ###
 ### Yarn installation
