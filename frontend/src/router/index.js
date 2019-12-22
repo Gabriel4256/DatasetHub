@@ -26,9 +26,20 @@ const routes = [
     }
   },
   {
-    path: '/labeling',
-    name: 'labelingPopup',
-    component: () => import('../views/LabelingPopup.vue')
+    path: '/download',
+    name: 'download',
+    components:{
+      default: () => import('../views/Download.vue'),
+      menuAndBar: MenuAndBar
+    } 
+  },
+  {
+    path: '/howto',
+    name: 'howto',
+    components: {
+      default: () => import('../views/HowTo.vue'),
+      menuAndBar: MenuAndBar
+    }
   }
 ]
 

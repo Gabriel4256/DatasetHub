@@ -20,16 +20,16 @@
           <!-- Main Menu-->
           <ul class="navbar-nav d-none d-lg-block">
             <!-- Home-->
-            <li class="nav-item active">
-              <a class="nav-link" href="HOME.html">Home</a>
+            <li class="nav-item" v-bind:class="{active: (currentTab === '0')}" v-on:click="tabClickHandler">
+              <router-link :to="{path: '/'}" id="0" class="nav-link">Home</router-link>
             </li>
             <!-- Download-->
-            <li class="nav-item">
-              <a class="nav-link" href="DOWNLOAD.html">Download</a>
+            <li class="nav-item" v-bind:class="{active: (currentTab === '1')}" v-on:click="tabClickHandler">
+              <router-link :to="{path: '/download'}" id="1" class="nav-link">Download</router-link>
             </li>
             <!-- How to-->
-            <li class="nav-item">
-              <a class="nav-link" href="HOWTO.html">How to</a>
+            <li class="nav-item" v-bind:class="{active: (currentTab === '2')}" v-on:click="tabClickHandler">
+              <router-link :to="{path: '/howto'}" id="2" class="nav-link">How to</router-link>
             </li>
           </ul>
           <div>
@@ -60,23 +60,29 @@ export default {
     showMenu: Function
   },
   data: function() {
+    let floatingPage = ["home", "howto", "download"]
     return {
       navBarClass: {
         "navbar-wrapper": true,
         "navbar-sticky": true,
-        "navbar-floating": (this.$route.name === "home"),
+        "navbar-floating": (floatingPage.includes(this.$route.name)),
       },
-      searchBarOpen: false
+      searchBarOpen: false,
+      currentTab: 0
+    }
+  },
+  methods: {
+    tabClickHandler: function(e){
+      this.currentTab = e.target.id;
     }
   },
   watch: {
     // watch and update the value of navbar-floating value 
     "$route.name": function(val){
-      this.navBarClass['navbar-floating'] = (val === "home");
+      this.navBarClass['navbar-floating'] = (val !== "account");
     }
   },
   mounted: function(){
-    // console.log("dssd")
     this.navBarClass['navbar-floating'] = (this.$route.name === "home");
   }
 };
