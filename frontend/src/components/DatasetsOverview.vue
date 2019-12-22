@@ -5,7 +5,7 @@
       v-bind:class="{'bg-dark': mode, 'bg-secondary': !mode}" 
       id="projects"
     >
-      <div class="container">
+      <div class="container" id="projects">
         <span v-html="headerHtml"></span>
         <ul class="nav nav-tabs nav-tabs-style-4 bg-white nav-justified mb-30">
           <li class="nav-item"><a id="0" class="nav-link py-3"  data-filter="*"><img class="d-block mx-auto mb-2" src="img/homepages/architect-agency/icon-all.png" width="40" alt="All">All</a></li>
