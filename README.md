@@ -19,8 +19,9 @@ Also, be sure to have `git` available in your PATH, `npm` might need it (You can
 
   You can install nodejs and npm easily with apt install, just run the following commands.
 
-      $ sudo apt install nodejs
-      $ sudo apt install npm
+      $ sudo apt install curl
+      $ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+      $ sudo apt-get install -y nodejs
 
 - #### Other Operating Systems
   You can find more information about the installation on the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/).
@@ -28,16 +29,16 @@ Also, be sure to have `git` available in your PATH, `npm` might need it (You can
 If the installation was successful, you should be able to run the following command.
 
     $ node --version
-    v8.11.3
+    v10.18.0
 
     $ npm --version
-    6.1.0
+    6.13.4
 
 ###
 ### Yarn installation
   After installing node, this project will need yarn too, so just run the following command.
 
-      $ npm install -g yarn
+      $ sudo npm install -g yarn
 
 ---
 
@@ -45,7 +46,7 @@ If the installation was successful, you should be able to run the following comm
 
     $ git clone https://github.com/Gabriel4256/DatasetHub
     $ cd DatasetHub
-    $ yarn setup
+    $ sudo yarn setup
 
 ## Runnung the project
     $ yarn build
