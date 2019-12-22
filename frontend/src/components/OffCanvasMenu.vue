@@ -213,9 +213,6 @@ export default {
             // inView: false
         }
     },
-    methods : {
-
-    },
 
     props: {
         inView: Boolean,

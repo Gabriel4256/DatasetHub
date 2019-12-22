@@ -3,22 +3,22 @@
       <div class="row">
         <Statistic 
             dataName="Totally satisfied clients"
-            dataNumber=350
+            v-bind:dataNumber="350"
             dataUnit="+"
         />
         <Statistic
             dataName="Positive feedback"
-            dataNumber=92
+            v-bind:dataNumber="92"
             dataUnit="%"
         />
         <Statistic
             dataName="Completed projects"
-            dataNumber=1446
+            v-bind:dataNumber="1446"
             dataUnit=''
         />
         <Statistic
             dataName="Average cost per hour"
-            dataNumber=28
+            v-bind:dataNumber="28"
             dataUnit="$"
         />
       </div>
@@ -36,5 +36,4 @@ export default {
 </script>
 
 <style>
-
 </style>

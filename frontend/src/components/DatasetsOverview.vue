@@ -5,11 +5,11 @@
       <div class="container">
         <h2 class="py-3 text-center text-lg-left text-white">Projects</h2>
         <ul class="nav nav-tabs nav-tabs-style-4 bg-white nav-justified mb-30">
-          <li class="nav-item"><a class="nav-link py-3 active" href="#" data-filter="*"><img class="d-block mx-auto mb-2" src="img/homepages/architect-agency/icon-all.png" width="40" alt="All">All</a></li>
-          <li class="nav-item"><a class="nav-link py-3" href="#" data-filter=".residential"><img class="d-block mx-auto mb-2" src="img/homepages/architect-agency/icon-residential.png" width="40" alt="Residential">Residential</a></li>
-          <li class="nav-item"><a class="nav-link py-3" href="#" data-filter=".commercial"><img class="d-block mx-auto mb-2" src="img/homepages/architect-agency/icon-commercial.png" width="40" alt="Commercial">Commercial</a></li>
-          <li class="nav-item"><a class="nav-link py-3" href="#" data-filter=".industrial"><img class="d-block mx-auto mb-2" src="img/homepages/architect-agency/icon-industrial.png" width="40" alt="Industrial">Industrial</a></li>
-          <li class="nav-item"><a class="nav-link py-3" href="#" data-filter=".public"><img class="d-block mx-auto mb-2" src="img/homepages/architect-agency/icon-public.png" width="40" alt="Public">Public</a></li>
+          <li class="nav-item"><a id="0" class="nav-link py-3"  data-filter="*"><img class="d-block mx-auto mb-2" src="img/homepages/architect-agency/icon-all.png" width="40" alt="All">All</a></li>
+          <li class="nav-item"><a id="1" class="nav-link py-3"  data-filter=".residential"><img class="d-block mx-auto mb-2" src="img/homepages/architect-agency/icon-residential.png" width="40" alt="Residential">Residential</a></li>
+          <li class="nav-item"><a id="2" class="nav-link py-3"  data-filter=".commercial"><img class="d-block mx-auto mb-2" src="img/homepages/architect-agency/icon-commercial.png" width="40" alt="Commercial">Commercial</a></li>
+          <li class="nav-item"><a id="3" class="nav-link py-3"  data-filter=".industrial"><img class="d-block mx-auto mb-2" src="img/homepages/architect-agency/icon-industrial.png" width="40" alt="Industrial">Industrial</a></li>
+          <li class="nav-item"><a id="4" class="nav-link py-3"  data-filter=".public"><img class="d-block mx-auto mb-2" src="img/homepages/architect-agency/icon-public.png" width="40" alt="Public">Public</a></li>
         </ul>
       </div>
       <div class="container-fluid">
@@ -48,16 +48,62 @@
 </template>
 
 <script>
+import $ from 'jquery';
+import imagesLoaded from 'imagesloaded';
+import isotope from 'isotope-layout';
+imagesLoaded.makeJQueryPlugin( $ );
+
 export default {
     name: "DatasetsOverview",
     data: function(){
         return {
-
+          chosen: 0
         }
+    },
+    methods: {
+      // OnClick: function(event){
+      //   // let target = '.filter-grid';
+      //   event.preventDefault();
+      //   this.chosen = event.target.id;
+      //   // var $filterValue = event.target['data-filter'];
+      //   // new isotope(document.querySelector(target),{filter: $filterValue});
+      // }
+    },
+    mounted: function(){
+      let selector = '.isotope-grid';
+      let transitionDuration = '0.7s';
+      let iso = null
+      if($(selector).length) {
+        $(selector).imagesLoaded(function() {
+          iso = new isotope(document.querySelector(selector), {
+            itemSelector: '.grid-item',
+            transitionDuration: transitionDuration,
+            masonry: {
+              columnWidth: '.grid-sizer',
+              gutter: '.gutter-sizer'
+            }
+          });
+        });
+      }
+
+      let target = '.filter-grid';
+      let toggler = '.nav-tabs';
+
+      if($(target).length) {
+        $(toggler).on( 'click', 'a', function(e) {
+          e.preventDefault();
+          $(toggler + ' a').removeClass('active');
+          $(this).addClass('active');
+          let $filterValue = $(this).attr('data-filter');
+          iso.arrange({ filter: $filterValue });
+        });
+      }
     }
 }
 </script>
 
 <style>
-
+.nav-link{
+  cursor: pointer;
+}
 </style>
