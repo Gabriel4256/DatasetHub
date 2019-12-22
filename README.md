@@ -35,10 +35,11 @@ If the installation was successful, you should be able to run the following comm
     6.13.4
 
 ###
-### Yarn installation
+### Yarn & nodemon installation
   After installing node, this project will need yarn too, so just run the following command.
 
       $ sudo npm install -g yarn
+      $ sudo npm install -g nodemon
 
 ---
 
@@ -46,13 +47,22 @@ If the installation was successful, you should be able to run the following comm
 
     $ git clone https://github.com/Gabriel4256/DatasetHub
     $ cd DatasetHub
+    
     $ sudo yarn setup
-
+    
+    if error occurs, then try this!
+    
+    $ sudo yarn install
+    $ cd server 
+    $ yarn install
+    $ cd ../frontend
+    $ yarn install
+    
 ## Runnung the project
     $ yarn build
-    $ yarn prod
+    $ sudo yarn prod
 
-## Running the development build
+## Running the development server
 
     $ yarn dev
 
