@@ -15,6 +15,14 @@ const routes = [
     }
   },
   {
+    path: '/account/recovery',
+    name: 'account recovery',
+    components: {
+      default: () => import('../views/PasswordRecovery'),
+      menuAndBar: MenuAndBar
+    }
+  },
+  {
     path: '/account',
     name: 'account',
     // route level code-splitting
@@ -39,6 +47,14 @@ const routes = [
     components: {
       default: () => import('../views/HowTo.vue'),
       menuAndBar: MenuAndBar
+    }
+  },
+  {
+    path: '*',
+    name: 'error',
+    components: {
+      default: () => import('../views/Error.vue'),
+      // menuAndBar: MenuAndBar
     }
   }
 ]

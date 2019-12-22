@@ -20,16 +20,16 @@
           <!-- Main Menu-->
           <ul class="navbar-nav d-none d-lg-block">
             <!-- Home-->
-            <li class="nav-item" v-bind:class="{active: (currentTab === '0')}" v-on:click="tabClickHandler">
-              <router-link :to="{path: '/'}" id="0" class="nav-link">Home</router-link>
+            <li class="nav-item" v-bind:class="{active: (currentTab === 'home')}" v-on:click="tabClickHandler">
+              <router-link :to="{path: '/'}" name="home" class="nav-link">Home</router-link>
             </li>
             <!-- Download-->
-            <li class="nav-item" v-bind:class="{active: (currentTab === '1')}" v-on:click="tabClickHandler">
-              <router-link :to="{path: '/download'}" id="1" class="nav-link">Download</router-link>
+            <li class="nav-item" v-bind:class="{active: (currentTab === 'download')}" v-on:click="tabClickHandler">
+              <router-link :to="{path: '/download'}" name="download" class="nav-link">Download</router-link>
             </li>
             <!-- How to-->
-            <li class="nav-item" v-bind:class="{active: (currentTab === '2')}" v-on:click="tabClickHandler">
-              <router-link :to="{path: '/howto'}" id="2" class="nav-link">How to</router-link>
+            <li class="nav-item" v-bind:class="{active: (currentTab === 'howto')}" v-on:click="tabClickHandler">
+              <router-link :to="{path: '/howto'}" name="howto" class="nav-link">How to</router-link>
             </li>
           </ul>
           <div>
@@ -68,22 +68,23 @@ export default {
         "navbar-floating": (floatingPage.includes(this.$route.name)),
       },
       searchBarOpen: false,
-      currentTab: 0
+      currentTab: "0"
     }
   },
   methods: {
     tabClickHandler: function(e){
-      this.currentTab = e.target.id;
+      this.currentTab = e.target.name;
     }
   },
   watch: {
     // watch and update the value of navbar-floating value 
     "$route.name": function(val){
-      this.navBarClass['navbar-floating'] = (val !== "account");
+      this.currentTab = val
+      this.navBarClass['navbar-floating'] = (val !== "account" && val !="howto");
     }
   },
   mounted: function(){
-    this.navBarClass['navbar-floating'] = (this.$route.name === "home");
+    this.navBarClass['navbar-floating'] = (this.$route.name !== "account" && this.$route.name != "howto");
   }
 };
 </script>

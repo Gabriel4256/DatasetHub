@@ -18,7 +18,7 @@
     </section>
     <!-- <OffCanvasMenu :inView="IsSideMenuInView" :hide="hideSideMenu"/> -->
     <Statistics/>
-    <DatasetsOverview/>
+    <DatasetsOverview v-bind:mode="true"/>
     <TeamIntro/>
     <HowToDo/>
     <Contact />

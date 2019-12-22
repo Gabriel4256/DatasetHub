@@ -1,9 +1,12 @@
 <template>
   <!-- Projects-->
   <div>
-    <section class="bg-dark py-5" id="projects">
+    <section class="py-5" 
+      v-bind:class="{'bg-dark': mode, 'bg-secondary': !mode}" 
+      id="projects"
+    >
       <div class="container">
-        <h2 class="py-3 text-center text-lg-left text-white">Projects</h2>
+        <span v-html="headerHtml"></span>
         <ul class="nav nav-tabs nav-tabs-style-4 bg-white nav-justified mb-30">
           <li class="nav-item"><a id="0" class="nav-link py-3"  data-filter="*"><img class="d-block mx-auto mb-2" src="img/homepages/architect-agency/icon-all.png" width="40" alt="All">All</a></li>
           <li class="nav-item"><a id="1" class="nav-link py-3"  data-filter=".residential"><img class="d-block mx-auto mb-2" src="img/homepages/architect-agency/icon-residential.png" width="40" alt="Residential">Residential</a></li>
@@ -41,7 +44,8 @@
           <!-- Item--><a class="grid-item commercial img-thumbnail p-1 mb-30 text-decoration-none" href="#"><img src="img/homepages/architect-agency/projects/12.jpg" alt="Project">
             <h3 class="text-lg p-3 mb-0 text-center">Project name</h3></a>
         </div>
-        <a href="DOWNLOAD.html"><h6 class="py-3 text-lg-right text-white">and more...</h6></a>
+        <router-link v-if="mode" :to= "{path: '/download'}" tag='a' ><h6 class="py-3 text-lg-right text-white">and more...</h6></router-link>
+        <!-- <span v-html='tailHtml'></span> -->
       </div>
     </section>
   </div>
@@ -57,17 +61,20 @@ export default {
     name: "DatasetsOverview",
     data: function(){
         return {
-          chosen: 0
+          chosen: 0,
+          headerHtml: this.mode?'<h2 class="py-3 text-center text-lg-left text-white">Projects</h2>' :`        <h2 class="py-3 text-center text-lg-left"></h2>
+          <h2 class="py-3 text-center text-lg-left"></h2><h2 class="py-3 text-center text-lg-left"></h2>`,
+          tailHtml: this.mode?`<router-link :to= "{path: '/download'}" tag="a"><h6 class="py-3 text-lg-right text-white">and more...</h6></router-link>`:''
         }
     },
     methods: {
-      // OnClick: function(event){
-      //   // let target = '.filter-grid';
-      //   event.preventDefault();
-      //   this.chosen = event.target.id;
-      //   // var $filterValue = event.target['data-filter'];
-      //   // new isotope(document.querySelector(target),{filter: $filterValue});
-      // }
+
+    },
+    props: {
+      //mode value should be changed depending on wheter it is used in home page or download page
+      //true: Home page, false: download page
+      //This should be refactored later!
+      mode: Boolean
     },
     mounted: function(){
       let selector = '.isotope-grid';

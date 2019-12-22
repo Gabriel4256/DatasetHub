@@ -1,5 +1,5 @@
 <template>
-  <DatasetsOverview/>
+  <DatasetsOverview v-bind:mode="false"/>
 </template>
 
 <script>

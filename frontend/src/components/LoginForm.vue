@@ -19,7 +19,7 @@
             <div class="custom-control custom-checkbox">
                 <input class="custom-control-input" type="checkbox" checked id="remember-me">
                 <label class="custom-control-label" for="remember-me">Remember me</label>
-            </div><a class="navi-link" href="NEW_PASSWORD.html">Forgot password?</a>
+            </div><router-link class="navi-link" :to="{path:'/account/recovery'}">Forgot password?</router-link>
             </div>
         </div>
         <div class="wizard-footer text-right">
