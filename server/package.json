@@ -6,7 +6,7 @@
   "author": "ssh",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=\"development\" nodemon ./index.js",
